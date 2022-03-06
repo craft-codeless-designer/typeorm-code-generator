@@ -1,0 +1,25 @@
+[
+  {
+    "columns": {
+      "age": {
+        "nullable": false,
+        "type": "Number"
+      },
+      "firstName": {
+        "length": 30,
+        "type": "String"
+      },
+      "id": {
+        "generated": "increment",
+        "primary": true,
+        "type": "int"
+      },
+      "lastName": {
+        "length": 50,
+        "nullable": false,
+        "type": "String"
+      }
+    },
+    "name": "Category"
+  }
+]
