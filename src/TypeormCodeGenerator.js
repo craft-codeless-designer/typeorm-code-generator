@@ -3,8 +3,8 @@ const { execSync } = require('child_process');
 const iconv = require('iconv-lite');
 const encoding = 'cp936';
 const binaryEncoding = 'binary';
-const { generateEngityTemplate } = require('./EntityTemplate');
-const { generateRepositoryTemplate } = require('./RepositoryTemplate');
+const { generateEngityTemplate } = require('./template/EntityTemplate');
+const { generateRepositoryTemplate } = require('./template/RepositoryTemplate');
 
 /**
  * @author 大漠穷秋<damoqiongqiu@126.com>
