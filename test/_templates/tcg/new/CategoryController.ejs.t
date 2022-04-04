@@ -1,5 +1,5 @@
 ---
-to: ./src/test/test2/test3/CategoryController.ts
+to: ../src/test/test2/test3/CategoryController.ts
 ---
 
 /**
@@ -13,7 +13,7 @@ import { Context } from 'koa';
 import { isNil } from 'lodash';
 import { getManager } from 'typeorm';
 import { Category } from './Category';
-import { router } from '../router';//@koa/router config in your project.
+import { router } from '../router';// 实际运行时 Koa 的路由配置文件，在自动生成的代码中，编辑器可能会提示报错，请忽略，只要代码真正运行时能获取到这份配置文件即可。
 
 /**
  * @class CategoryController

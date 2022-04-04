@@ -1,20 +1,64 @@
-<h1 align="center">typeorm-code-generator</h1>
+<h1 align="center">TCG: typeorm-code-generator</h1>
 
-typeorm-code-generator ，简称 tcg ，是一个小工具，专门用来生成 typeorm 定义的实体类，以及对应的 Koa CRUD 接口，没有其它用途。
+typeorm-code-generator ，简称 TCG ，是基于 hygen 二次开发的代码生成工具。
 
+TCG 用来生成两种类型的源代码：
+
+- typeorm 定义的实体类
+- 实体类对应的 Koa CRUD 接口
+
+@see http://www.hygen.io
 @see https://typeorm.io
 @see https://koajs.com/
 
-## 1. 用法
+## 1. 安装 hygen
 
-typeorm-code-generator 支持两种用法：
+唯一需要手动安装的是 hygen ，需要手动把它安装到全局空间中:
+
+```shell
+npm i -g hygen
+```
+
+不同环境中的安装方法请参考官方文档，http://www.hygen.io/docs/quick-start
+
+## 2. 验证环境是否 OK
+
+进入此项目根目录下的 /test 目录，执行如下命令：
+
+```shell
+
+node test.js
+
+```
+
+如果成功生成了模板文件和对应的代码，则说明环境已经 ready:
+
+```shell
+test
+└─_templates
+    └─tcg
+        └─new
+                Category.ejs.t
+                CategoryController.ejs.t
+```
+
+```shell
+src
+└─test
+    └─test2
+        └─test3
+                Category.ts
+                CategoryController.ts
+```
+
+## 3. TCG 用法
+
+TCG 支持两种用法：
 
 - 在命令行中调用，就像调用 cli 脚手架工具一样
 - 在 nodejs(koa) 代码中调用
 
-用法细节请参考下面的例子。
-
-### 1.1 在命令行中调用
+### 3.1 在命令行中调用
 
 - 在你的项目中安装 tcg： npm i typeorm-code-generator --save (yarn add typeorm-code-generator)
 - 编写配置文件：your_json_file.json ，语法参考 typeorm 官方文档 https://typeorm.io/#/separating-entity-definition ，唯一的注意点：所有 JS 内置的类型都需要采用字符串写法，例如 type:"String" ，而不能写成 type:String ，因为 JSON 格式不能接受函数类型，其它写法与 typeorm 官方定义的写法完全一致。
@@ -24,7 +68,7 @@ typeorm-code-generator 支持两种用法：
 tcg g -i your_json_file.json
 ```
 
-json 文件中的内容：
+json 配置文件中的内容：
 
 ```javascript
 [
@@ -139,7 +183,7 @@ router.delete('/api/category/:id', CategoryController.deleteById);
 
 ```
 
-### 1.2 在 nodejs 代码中调用
+### 3.2 在 nodejs 代码中调用
 
 ```javascript
 const { generate } = require('typeorm-code-generator');
@@ -149,25 +193,8 @@ const { generate } = require('typeorm-code-generator');
 generate({ inputJSON: 'test.json', distPath: './src/test/test2/test3', entity: true, repository: true });
 ```
 
-## 2. 注意点
+可以在 nodejs 代码中进行调用之后，我们就可以动态生成 json 配置文件，然后用代码来生成代码了，在 https://github.com/craft-codeless-designer/craft-codeless-designer-demo 中提供了完整的例子，用图形化的方式生成 json 文件，然后调用 tcg 大批量生成实体类和 CRUD 接口。
 
-tcg 的 peerDependencies 如下（已在 package.json 中定义，会自动安装）：
-
-- "@koa/cors": "^3.1.0",
-- "@koa/router": "^10.0.0",
-- "camelcase": "^6.2.0",
-- "commander": "^7.2.0",
-- "cross-env": "^7.0.3",
-- "hygen": "^6.1.0",
-- "koa": "^2.13.1",
-- "koa-bodyparser": "^4.3.0",
-- "koa-jwt": "^4.0.1",
-- "lodash": "^4.17.21",
-- "shelljs": "^0.8.4",
-- "typeorm": "^0.2.32"
-
-其中，核心组件是 hygen ，它提供了模板代码的写法和生成工具。
-
-## 3. License
+## 4. License
 
 [MIT licensed](./LICENSE).

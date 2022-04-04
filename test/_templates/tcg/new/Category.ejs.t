@@ -1,5 +1,5 @@
 ---
-to: ./src/test/test2/test3/Category.ts
+to: ../src/test/test2/test3/Category.ts
 ---
 
 /**
