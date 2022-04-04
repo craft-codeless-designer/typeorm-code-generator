@@ -17,12 +17,7 @@ export default {
   input: './src/TypeormCodeGenerator.js',
   output: [
     {
-      file: `dist/index.es.${process.env.NODE_ENV === 'production' ? 'min.' : ''}js`,
-      format: 'es',
-      sourcemap: true,
-    },
-    {
-      file: `dist/index.cjs.${process.env.NODE_ENV === 'production' ? 'min.' : ''}js`,
+      file: `dist/index.js`,
       format: 'cjs',
       sourcemap: true,
     },
