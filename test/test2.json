@@ -1,0 +1,15 @@
+[
+  {
+    "name": "User",
+    "columns": {
+      "id": { "name": "id", "type": "varchar", "primary": false, "generated": false, "nullable": false, "length": 128 },
+      "name": { "name": "name", "type": "varchar", "primary": false, "generated": false, "nullable": true, "length": 128 }
+    },
+    "relations": { "roles": { "type": "many-to-many", "target": "Role", "joinTable": { "target": "Role" } } }
+  },
+  {
+    "name": "Role",
+    "columns": { "id": { "name": "id", "type": "varchar", "primary": false, "generated": false, "nullable": true, "length": 128 } },
+    "relations": { "users": { "type": "many-to-many", "target": "User" } }
+  }
+]
