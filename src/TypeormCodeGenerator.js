@@ -89,16 +89,16 @@ function parseOptions(options) {
 
   let counter = 0;
   try {
-    let temp = JSON.parse(options.inputJSON);
-    options.inputJSON = temp;
+    options.inputJSON = JSON.parse(options.inputJSON);
   } catch (err) {
+    console.error(err);
     counter++;
   }
 
   try {
-    const data = fs.readFileSync(options.inputJSON, 'utf8');
-    options.inputJSON = data;
+    options.inputJSON = fs.readFileSync(options.inputJSON, 'utf8');
   } catch (err) {
+    console.error(err);
     counter++;
   }
 
