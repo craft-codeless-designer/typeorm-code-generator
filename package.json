@@ -1,6 +1,6 @@
 {
   "name": "typeorm-code-generator",
-  "version": "1.0.36",
+  "version": "1.0.37",
   "description": "Code generator for typeorm and koa, auto-generate Entities and Koala respositories.",
   "author": {
     "name": "大漠穷秋",
@@ -14,7 +14,8 @@
   "scripts": {
     "build-prod": "npm run clean && cross-env NODE_ENV=production rollup -c",
     "build-dev": "npm run clean && cross-env NODE_ENV=development rollup -c",
-    "clean": "rimraf dist"
+    "clean": "rimraf dist",
+    "postinstall": "npm i -g hygen"
   },
   "bin": {
     "tcg": "./cli_index.js"
