@@ -2,16 +2,20 @@
 
 typeorm-code-generator ，简称 TCG ，是基于 hygen 二次开发的代码生成工具。
 
+## 1.简介
+
 TCG 用来生成两种类型的源代码：
 
 - typeorm 定义的实体类
 - 实体类对应的 Koa CRUD 接口
 
 @see http://www.hygen.io
+
 @see https://typeorm.io
+
 @see https://koajs.com/
 
-## 1. 安装 hygen
+## 2. 安装 hygen
 
 唯一需要手动安装的是 hygen ，需要手动把它安装到全局空间中:
 
@@ -21,7 +25,7 @@ npm i -g hygen
 
 不同环境中的安装方法请参考官方文档，http://www.hygen.io/docs/quick-start
 
-## 2. 验证环境是否 OK
+## 3. 验证环境是否 OK
 
 进入此项目根目录下的 /test 目录，执行如下命令：
 
@@ -51,14 +55,14 @@ src
                 CategoryController.ts
 ```
 
-## 3. TCG 用法
+## 4. TCG 用法
 
 TCG 支持两种用法：
 
 - 在命令行中调用，就像调用 cli 脚手架工具一样
 - 在 nodejs(koa) 代码中调用
 
-### 3.1 在命令行中调用
+### 4.1 在命令行中调用
 
 - 在你的项目中安装 tcg： npm i typeorm-code-generator --save (yarn add typeorm-code-generator)
 - 编写配置文件：your_json_file.json ，语法参考 typeorm 官方文档 https://typeorm.io/#/separating-entity-definition ，唯一的注意点：所有 JS 内置的类型都需要采用字符串写法，例如 type:"String" ，而不能写成 type:String ，因为 JSON 格式不能接受函数类型，其它写法与 typeorm 官方定义的写法完全一致。
@@ -183,7 +187,7 @@ router.delete('/api/category/:id', CategoryController.deleteById);
 
 ```
 
-### 3.2 在 nodejs 代码中调用
+### 4.2 在 nodejs 代码中调用
 
 ```javascript
 const { generate } = require('typeorm-code-generator');
@@ -195,6 +199,10 @@ generate({ inputJSON: 'test.json', distPath: './src/test/test2/test3', entity: t
 
 可以在 nodejs 代码中进行调用之后，我们就可以动态生成 json 配置文件，然后用代码来生成代码了，在 https://github.com/craft-codeless-designer/craft-codeless-designer-demo 中提供了完整的例子，用图形化的方式生成 json 文件，然后调用 tcg 大批量生成实体类和 CRUD 接口。
 
-## 4. License
+<img src="./test/imgs/1.png">
+
+<img src="./test/imgs/2.png">
+
+## 5. License
 
 [MIT licensed](./LICENSE).
