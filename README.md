@@ -1,10 +1,12 @@
-<h1 align="center">TCG: typeorm-code-generator</h1>
+<p align="center">
+<img width="150" src="./test/imgs/typeorm-code-generator.png">
+</p>
 
-typeorm-code-generator ，简称 TCG ，是基于 hygen 二次开发的代码生成工具。
+<h1 align="center">TCG: typeorm-code-generator</h1>
 
 ## 1.简介
 
-TCG 用来生成两种类型的源代码：
+typeorm-code-generator ，简称 TCG ，是基于 hygen 二次开发的代码生成工具， TCG 用来生成两种源代码：
 
 - typeorm 定义的实体类
 - 实体类对应的 Koa CRUD 接口
